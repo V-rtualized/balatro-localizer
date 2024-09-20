@@ -31,8 +31,6 @@ const LocalizationEditor = () => {
         URL.revokeObjectURL(url);
     };
 
-    console.log(data.descriptions['Blind']['bl_eye'].text.length)
-
     return (
         <div>
             <h1>Localization Editor</h1>

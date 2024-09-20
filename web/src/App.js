@@ -27,9 +27,6 @@ for (let joker of JokersData) {
 // Convert the Set to an array if you need the final result as an array
 tags = Array.from(tags);
 
-console.log(tags);
-
-
 const Layout = () => (
   <div className="App" style={{ width: '100vw', height: '100vh', alignContent: 'center' }}>
     <CollectionBackground>

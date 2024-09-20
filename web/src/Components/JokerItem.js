@@ -1,6 +1,6 @@
 import React from "react";
 import JokerCard from "./JokerCard";
-import FormattedText from "./FormattedText";
+import FormattedText from "./FormattedText/FormattedText";
 
 const JokerItem = ({ item }) => {
   return (<>
@@ -20,9 +20,9 @@ const JokerItem = ({ item }) => {
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
         padding: '10px'
       }}>
-      {item.text && item.text.map((t,i) => 
-        <FormattedText key={`${item.key}-${i}`} style={{ margin: 0 }} text={t} />
-      )}
+      {item.text && 
+        <FormattedText key={`${item.key}`} style={{ margin: 0 }} lines={item.text} />
+      }
     </div>
   </div>
   </>)
