@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import JokerCard from './JokerCard'
 import FormattedText from './FormattedText/FormattedText'
+import EditableText from './EditableText'
 
 const JokerItem = ({ item }) => {
+  const [name, setName] = useState(item.name)
+
+  const handleNameChange = (newName) => {
+    setName(newName)
+  }
+
+  useEffect(() => {
+    setName(item.name)
+  }, [item])
+
   return (
     <>
       <JokerCard id={item.key} />
@@ -16,10 +27,8 @@ const JokerItem = ({ item }) => {
           padding: '10px',
         }}
       >
-        {item.name && (
-          <h1 style={{ color: 'white', margin: 0, marginBottom: '10px' }}>
-            {item.name}
-          </h1>
+        {name && (
+          <EditableText header text={name} onTextChange={handleNameChange} />
         )}
         <div
           style={{
@@ -27,6 +36,7 @@ const JokerItem = ({ item }) => {
             borderRadius: 15,
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
             padding: '10px',
+            marginTop: '10px',
           }}
         >
           {item.text && (

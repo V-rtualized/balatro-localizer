@@ -2,18 +2,9 @@ import React from 'react'
 import Line from './Line'
 import useFormattedTextState from '../../Utils/FormattedText/useFormattedTextState'
 
-// Main FormattedText Component
 const FormattedText = ({ lines, style }) => {
-  const {
-    linesState,
-    handleDragStart,
-    handleDrop,
-    handleEdit,
-    editableSegment,
-    handleEditChange,
-    handleEditSubmit,
-    handleKeyPress,
-  } = useFormattedTextState(lines)
+  const { linesState, handleDragStart, handleDrop, handleEditSubmit } =
+    useFormattedTextState(lines)
 
   return (
     <div style={{ ...style, fontWeight: 'bold', userSelect: 'none' }}>
@@ -24,11 +15,7 @@ const FormattedText = ({ lines, style }) => {
           lineIndex={lineIndex}
           handleDragStart={handleDragStart}
           handleDrop={handleDrop}
-          handleEdit={handleEdit}
-          editableSegment={editableSegment}
-          handleEditChange={handleEditChange}
-          handleEditSubmit={handleEditSubmit}
-          handleKeyPress={handleKeyPress}
+          handleEditSubmit={handleEditSubmit} // Submit edit changes
         />
       ))}
     </div>

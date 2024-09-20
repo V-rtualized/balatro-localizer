@@ -11,22 +11,6 @@ const JokersData = Object.keys(data.descriptions.Joker).map((j) => ({
   ...data.descriptions.Joker[j],
 }))
 
-let tags = new Set()
-
-for (let joker of JokersData) {
-  for (let text of joker.text) {
-    let matches = text.match(/\{([^}]+)\}/g)
-    if (matches) {
-      matches.forEach((tag) => {
-        tags.add(tag.slice(1, -1))
-      })
-    }
-  }
-}
-
-// Convert the Set to an array if you need the final result as an array
-tags = Array.from(tags)
-
 const Layout = () => (
   <div
     className="App"
