@@ -1,47 +1,48 @@
-import React from 'react';
-import CollectionMenu from './Components/CollectionMenu';
-import CollectionBackground from './Components/CollectionBackground';
-import CollectionCarousel from './Components/CollectionCarousel';
-import { Routes, Route, Outlet, BrowserRouter } from "react-router-dom";
-import JokerItem from './Components/JokerItem';
+import React from 'react'
+import CollectionMenu from './Components/CollectionMenu'
+import CollectionBackground from './Components/CollectionBackground'
+import CollectionCarousel from './Components/CollectionCarousel'
+import { Routes, Route, Outlet, BrowserRouter } from 'react-router-dom'
+import JokerItem from './Components/JokerItem'
 import data from './Assets/localization.json'
 
-const JokersData = Object.keys(data.descriptions.Joker).map(j => ({
+const JokersData = Object.keys(data.descriptions.Joker).map((j) => ({
   key: j,
-  ...data.descriptions.Joker[j]
+  ...data.descriptions.Joker[j],
 }))
 
-let tags = new Set();
+let tags = new Set()
 
 for (let joker of JokersData) {
   for (let text of joker.text) {
-    let matches = text.match(/\{([^}]+)\}/g);
+    let matches = text.match(/\{([^}]+)\}/g)
     if (matches) {
-      matches.forEach(tag => {
-        tags.add(tag.slice(1, -1));
-      });
+      matches.forEach((tag) => {
+        tags.add(tag.slice(1, -1))
+      })
     }
   }
 }
 
 // Convert the Set to an array if you need the final result as an array
-tags = Array.from(tags);
+tags = Array.from(tags)
 
 const Layout = () => (
-  <div className="App" style={{ width: '100vw', height: '100vh', alignContent: 'center' }}>
+  <div
+    className="App"
+    style={{ width: '100vw', height: '100vh', alignContent: 'center' }}
+  >
     <CollectionBackground>
-      <Outlet/>
+      <Outlet />
     </CollectionBackground>
   </div>
 )
 
-const Menu = () => (
-  <CollectionMenu />
-)
+const Menu = () => <CollectionMenu />
 
 const Jokers = () => (
-  <CollectionCarousel 
-    items={JokersData} 
+  <CollectionCarousel
+    items={JokersData}
     renderItem={(item) => <JokerItem item={item} />}
   />
 )
@@ -57,4 +58,4 @@ const App = () => (
   </BrowserRouter>
 )
 
-export default App;
+export default App

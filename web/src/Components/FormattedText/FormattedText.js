@@ -1,10 +1,19 @@
-import React from 'react';
-import Line from './Line';
-import useFormattedTextState from '../../Utils/FormattedText/useFormattedTextState';
+import React from 'react'
+import Line from './Line'
+import useFormattedTextState from '../../Utils/FormattedText/useFormattedTextState'
 
 // Main FormattedText Component
 const FormattedText = ({ lines, style }) => {
-  const { linesState, handleDragStart, handleDrop, handleEdit, editableSegment, handleEditChange, handleEditSubmit, handleKeyPress } = useFormattedTextState(lines);
+  const {
+    linesState,
+    handleDragStart,
+    handleDrop,
+    handleEdit,
+    editableSegment,
+    handleEditChange,
+    handleEditSubmit,
+    handleKeyPress,
+  } = useFormattedTextState(lines)
 
   return (
     <div style={{ ...style, fontWeight: 'bold', userSelect: 'none' }}>
@@ -23,7 +32,7 @@ const FormattedText = ({ lines, style }) => {
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default FormattedText;
+export default FormattedText

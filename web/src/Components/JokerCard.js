@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 import centers from '../Assets/centers.json'
 
 const getIndexFromKey = (id, spritesPerRow) => {
-  return centers[id]?.pos?.x + (centers[id]?.pos?.y * spritesPerRow)
+  return centers[id]?.pos?.x + centers[id]?.pos?.y * spritesPerRow
 }
 
 const JokerCard = ({ id }) => {
-  const spriteWidth = 142;
-  const spriteHeight = 190;
+  const spriteWidth = 142
+  const spriteHeight = 190
 
   const index = getIndexFromKey(id, 10)
 
@@ -17,10 +17,10 @@ const JokerCard = ({ id }) => {
         width: `${spriteWidth}px`,
         height: `${spriteHeight}px`,
         backgroundSize: `${spriteWidth}px auto`,
-        backgroundImage: `url(/jokers/tile${("00" + index).slice(-3)}.png)`
+        backgroundImage: `url(/jokers/tile${('00' + index).slice(-3)}.png)`,
       }}
     />
-  );
-};
+  )
+}
 
-export default JokerCard;
+export default JokerCard

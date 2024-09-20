@@ -1,8 +1,18 @@
-import React from 'react';
-import Segment from './Segment';
+import React from 'react'
+import Segment from './Segment'
 
 // Line Component
-const Line = ({ line, lineIndex, handleDragStart, handleDrop, handleEdit, editableSegment, handleEditChange, handleEditSubmit, handleKeyPress }) => {
+const Line = ({
+  line,
+  lineIndex,
+  handleDragStart,
+  handleDrop,
+  handleEdit,
+  editableSegment,
+  handleEditChange,
+  handleEditSubmit,
+  handleKeyPress,
+}) => {
   return (
     <div style={{ marginBottom: '10px' }}>
       {line.map((segment, segmentIndex) => (
@@ -26,7 +36,7 @@ const Line = ({ line, lineIndex, handleDragStart, handleDrop, handleEdit, editab
         </span>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Line;
+export default Line

@@ -1,26 +1,26 @@
-import getColorFromName from './getColorFromName';
+import getColorFromName from './getColorFromName'
 
 const applyStyles = (tags) => {
-  let style = {};
-  
-  tags.forEach(tag => {
-    const [key, value] = tag.split(':');
+  let style = {}
+
+  tags.forEach((tag) => {
+    const [key, value] = tag.split(':')
     switch (key) {
       case 'C': // Color
-        style.color = getColorFromName(value);
-        break;
+        style.color = getColorFromName(value)
+        break
       case 'X': // Background color
-        style.backgroundColor = getColorFromName(value);
-        break;
+        style.backgroundColor = getColorFromName(value)
+        break
       case 'S': // Scale (font size)
-        style.fontSize = `${parseInt(value, 10)}%`;
-        break;
+        style.fontSize = `${parseInt(value, 10)}%`
+        break
       default:
-        break;
+        break
     }
-  });
+  })
 
-  return style;
-};
+  return style
+}
 
-export default applyStyles;
+export default applyStyles

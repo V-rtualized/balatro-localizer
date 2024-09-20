@@ -13,8 +13,8 @@ const getColorFromName = (color) => {
     spades: '#3c23aa',
     hearts: '#e34230',
     dark_edition: '#7c7ede',
-  };
-  return colors[color] || color;
-};
+  }
+  return colors[color] || color
+}
 
-export default getColorFromName;
+export default getColorFromName
