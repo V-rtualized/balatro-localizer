@@ -12,7 +12,7 @@ const useFormattedTextState = (lines) => {
         acc.currentStyle = applyStyles(tags);
       } else if (descriptionVariableRegex.test(segment)) {
         acc.segments.push({ text: '#', style: acc.currentStyle, type: 'description-variable' });
-      } else if (segment !== "") {
+      } else if (segment.trim() !== "") {
         acc.segments.push({ text: segment, style: acc.currentStyle, type: 'text' });
       }
       return acc;
