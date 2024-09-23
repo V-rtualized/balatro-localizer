@@ -14,7 +14,7 @@ const Segment = ({
       text={segment.text}
       onTextChange={(newText) =>
         handleEditSubmit(lineIndex, segmentIndex, newText)
-      } // Handle text change when editing is done
+      }
       style={{
         ...segment.style,
         display: 'inline-block',
@@ -22,8 +22,8 @@ const Segment = ({
         border: '1px solid transparent',
         boxShadow: '1px 1px 5px rgba(0,0,0,0.2)',
       }}
-      segmentType={segment.type} // Pass segment type to control editing
-      onDragStart={() => handleDragStart(lineIndex, segmentIndex)} // Handle dragging
+      segmentType={segment.type}
+      onDragStart={() => handleDragStart(lineIndex, segmentIndex)}
     />
   )
 }

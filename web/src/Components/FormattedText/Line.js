@@ -7,11 +7,7 @@ const Line = ({
   lineIndex,
   handleDragStart,
   handleDrop,
-  handleEdit,
-  editableSegment,
-  handleEditChange,
-  handleEditSubmit,
-  handleKeyPress,
+  handleEditSubmit
 }) => {
   return (
     <div style={{ marginBottom: '10px' }}>
@@ -27,11 +23,7 @@ const Line = ({
             segmentIndex={segmentIndex}
             lineIndex={lineIndex}
             handleDragStart={handleDragStart}
-            handleEdit={handleEdit}
-            editableSegment={editableSegment}
-            handleEditChange={handleEditChange}
             handleEditSubmit={handleEditSubmit}
-            handleKeyPress={handleKeyPress}
           />
         </span>
       ))}

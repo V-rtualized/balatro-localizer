@@ -3,15 +3,26 @@ import JokerCard from './JokerCard'
 import FormattedText from './FormattedText/FormattedText'
 import EditableText from './EditableText'
 
-const JokerItem = ({ item }) => {
+const JokerItem = ({ item = {}, setLocalization }) => {
   const [name, setName] = useState(item.name)
+  const [text, setText] = useState(item.text)
 
+  // Handle name change and save to localization data
   const handleNameChange = (newName) => {
     setName(newName)
+    setLocalization(`descriptions.Joker.${item.key}.name`, newName)
+  }
+
+  // Handle text change and save to localization data
+  const handleTextChange = (updatedText) => {
+    setText(updatedText)
+    setLocalization(`descriptions.Joker.${item.key}.text`, updatedText)
   }
 
   useEffect(() => {
+    if (!item) return
     setName(item.name)
+    setText(item.text)
   }, [item])
 
   return (
@@ -39,11 +50,12 @@ const JokerItem = ({ item }) => {
             marginTop: '10px',
           }}
         >
-          {item.text && (
+          {text && (
             <FormattedText
               key={`${item.key}`}
               style={{ margin: 0 }}
-              lines={item.text}
+              lines={text} // Pass the text to FormattedText
+              onTextChange={handleTextChange} // Handle text change
             />
           )}
         </div>
